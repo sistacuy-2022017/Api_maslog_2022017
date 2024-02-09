@@ -22,6 +22,10 @@ const MascotaSchema = Schema ({
         required: [true, 'es obligatoria la especie']
     },
 
+    EstadoMascota:{
+        type: Boolean,
+        default: true
+    }
 });
 
-module.exports = model('Mascota', MascotaSchemass)
+module.exports = model('Mascota', MascotaSchema)
