@@ -2,8 +2,8 @@ const { Router } = require('express');
 const { check } = require('express-validator');
 
 const { validarCampos } = require('../middlewares/validar-campos');
-const { existenteRaza, existeMascotaById } = require('../helpers/db-validators-mascota');
-const { mascotaPost, mascotaGet, mascotaPut } = require('../controllers/mascota.controller');
+const {  existeMascotaById } = require('../helpers/db-validators-mascota');
+const { mascotaPost, mascotaGet, mascotaPut, getMascotaById } = require('../controllers/mascota.controller');
 
 
 const router = Router();
@@ -17,11 +17,20 @@ router.post(
     "/",
     [
         check("NombreMascota", "el nombre es obligatorio").not().isEmpty(),
-        check("RazaMascota", "esta raza ya existe").isString().isEmpty(),
-        check("EdadMascota", "tiene que ser con numeros y caracteres").isString().isEmpty(),
-        check("EspecieMascota").isString().isEmpty(),
+        check("RazaMascota", "campo obligatorio").not().isEmpty(),
+        check("EdadMascota", "tiene que ser con numeros y caracteres").not().isEmpty(),
+        check("EspecieMascota").not().isEmpty(),
         validarCampos,
     ], mascotaPost);
+
+router.get(
+    "/:id",
+    [
+        check("id", "el id no es un formato valido de MongoDB, pone atencion papito").isMongoId(),
+        check("id").custom(existeMascotaById),
+        validarCampos
+    ], getMascotaById);
+
 
 router.put(
     "/:id",

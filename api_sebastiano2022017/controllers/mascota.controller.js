@@ -16,7 +16,7 @@ const mascotaPost = async (req, res) =>{
 
 const mascotaGet = async (req, res = response) => {
     const { limite, desde } = req.query;
-    const query = { EstadoMascota: true };
+    const query = { EstadoMascota: true};
 
     const [total, mascotas] = await Promise.all([
         Mascota.countDocuments(query),
@@ -28,6 +28,15 @@ const mascotaGet = async (req, res = response) => {
     res.status(200).json({
         total,
         mascotas
+    });
+}
+
+const getMascotaById = async (req, res = response) => {
+    const {id} = req.params;
+    const mascota = await Mascota.findOne({_id: id});
+
+    res.status(200).json({
+        mascota
     });
 }
 
@@ -49,5 +58,6 @@ const mascotaPut = async (req, res = response) => {
 module.exports = {
     mascotaPost,
     mascotaGet,
-    mascotaPut
+    mascotaPut,
+    getMascotaById
 }
