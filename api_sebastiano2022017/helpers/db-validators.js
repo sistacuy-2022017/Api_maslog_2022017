@@ -12,7 +12,7 @@ const existenteEmail = async (correo = '') => {
 
 
 const esRolValido = async (role='') => {
-    const existeRol = await Role.findOne({role});
+    const existeRol = await role.findOne({role});
 
     if(!existeRol){
         throw new Error(`El role ${ role } no existe en base de datos.` )

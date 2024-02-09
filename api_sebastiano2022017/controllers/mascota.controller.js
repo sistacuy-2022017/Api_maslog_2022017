@@ -54,10 +54,24 @@ const mascotaPut = async (req, res = response) => {
     });
 }
 
+const mascotaDelete = async (req, res = response) => {
+    const {id} = req.params;
+    await Mascota.findByIdAndUpdate(id, {EstadoMascota: false});
+
+
+    const  mascota = await Mascota.findOne({_id: id});
+
+    res.status(200).json({
+        msg: "mascota eliminada exitosamente",
+        mascota
+    });
+}
+
 
 module.exports = {
     mascotaPost,
     mascotaGet,
     mascotaPut,
-    getMascotaById
+    getMascotaById,
+    mascotaDelete
 }
