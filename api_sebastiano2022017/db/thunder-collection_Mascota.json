@@ -1,0 +1,100 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Mascota",
+    "dateExported": "2024-02-09T17:54:33.483Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9d340447-0e26-4a5f-8cea-631a649f4470",
+            "colId": "a21a991b-2678-4962-b4be-a06a087e6c0d",
+            "containerId": "",
+            "name": "mascotaPost",
+            "url": "http://localhost:3000/api/mascotas",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-09T16:04:41.949Z",
+            "modified": "2024-02-09T17:21:31.115Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"NombreMascota\": \"animal\",\n  \"RazaMascota\": \"pezxd\",\n  \"EdadMascota\": \"5 meses\",\n  \"EspecieMascota\": \"c fue\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "38816172-41f1-4fc1-9d29-d3d1233c00f7",
+            "colId": "a21a991b-2678-4962-b4be-a06a087e6c0d",
+            "containerId": "",
+            "name": "mascotaPut",
+            "url": "http://localhost:3000/api/mascotas/65c65f0df726806f71a20806",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-02-09T16:32:22.705Z",
+            "modified": "2024-02-09T17:22:57.951Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"NombreMascota\": \"tiburoncin\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1eb80844-5393-4c6b-a1c5-794d65d03b59",
+            "colId": "a21a991b-2678-4962-b4be-a06a087e6c0d",
+            "containerId": "",
+            "name": "mascotaGet",
+            "url": "http://localhost:3000/api/mascotas?desde=1&limite=4",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-09T16:52:07.887Z",
+            "modified": "2024-02-09T17:06:37.603Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "desde",
+                    "value": "1",
+                    "isPath": false
+                },
+                {
+                    "name": "limite",
+                    "value": "4",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "a557a356-2d47-4c01-b3df-c3e739807dac",
+            "colId": "a21a991b-2678-4962-b4be-a06a087e6c0d",
+            "containerId": "",
+            "name": "mascotaDelete",
+            "url": "http://localhost:3000/api/mascotas/65c65f1cf726806f71a20808",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-02-09T17:27:24.654Z",
+            "modified": "2024-02-09T17:27:54.803Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b814cc00-1e3f-4d7e-a64f-0666cc49adf5",
+            "colId": "a21a991b-2678-4962-b4be-a06a087e6c0d",
+            "containerId": "",
+            "name": "getMascotaById",
+            "url": "http://localhost:3000/api/mascotas/65c65f0df726806f71a20806",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-02-09T17:35:57.589Z",
+            "modified": "2024-02-09T17:36:59.021Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
