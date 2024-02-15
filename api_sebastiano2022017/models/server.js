@@ -9,6 +9,7 @@ class Server{
         this.port = process.env.PORT;  
         this.usuariosPath = '/api/usuarios';  
         this.usuariosPathe = '/api/mascotas';   
+        this.authPath = '/api/auth';
         this.conetarDB();
         this.middlewares();
         this.routes();
@@ -27,6 +28,7 @@ class Server{
     routes(){
         this.app.use(this.usuariosPath, require('../routes/user.routes'));
         this.app.use(this.usuariosPathe, require('../routes/mascota.routes'));
+        this.app.use(this.authPath, require('../routes/auth.routes'));
     }
 
     listen(){
